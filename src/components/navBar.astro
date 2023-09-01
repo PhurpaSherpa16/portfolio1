@@ -1,0 +1,191 @@
+---
+import logo from '../../public/images/icon.png';
+---
+<script>
+    var button = document.getElementById("menu");
+    button.onclick = function () {
+        var span1 = document.getElementById("1");
+        var span2 = document.getElementById("2");
+        var span3 = document.getElementById("3");
+        var projects = document.getElementById("projects");
+        var about = document.getElementById("about");
+        var contact = document.getElementById("contact");
+
+        var div = document.getElementById("hiddenMenuBar");
+        if (div.style.left !== "0px") {
+            div.style.left = "0px";
+            projects.style.left = "0px";
+            about.style.left = "0px";
+            contact.style.left = "0px";
+
+            div.style.transition = "0.3s";
+            projects.style.transition = "0.3s 0.3s";
+            about.style.transition = "0.3s 0.4s";
+            contact.style.transition = "0.3s 0.5s";
+        } else {
+            div.style.left = "-10000px";
+            projects.style.left = "-601px";
+            about.style.left = "-601px";
+            contact.style.left = "-601px";
+            div.style.transition = "0.5s ease-in";
+            projects.style.transition = "0s";
+            about.style.transition = "0s";
+            contact.style.transition = "0s";
+        }
+
+        if (span2.style.display !== "none") {
+            span2.style.display = "none";
+            span1.style.transform = "translateY(4px) rotate(45deg)";
+            span3.style.transform = "translateY(-4px) rotate(-45deg)";
+            span1.style.backgroundColor = "#f23513";
+            span3.style.backgroundColor = "#f23513";
+        } else {
+            span2.style.display = "block";
+            span1.style.transform = "";
+            span3.style.transform = "";
+            span1.style.backgroundColor = "#0f0f0f";
+            span3.style.backgroundColor = "#0f0f0f";
+        }
+    };
+</script>
+
+<div id="mainDiv">
+    <div id="logoDiv" class="text-xl font-bold p-4 w-fit">
+        <a id="logoLink" href="/">
+            <img
+                id="icon"
+                src={logo}
+                alt="Portfolio Icon"
+            />
+            <p>Portfolio</p>
+        </a>
+    </div>
+    <div id="menuBar">
+        <ul id="menuList" class="flex text-xl">
+            <li>Projects</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        <div id="menu">
+            <span class="bar" id="1"></span>
+            <span class="bar" id="2"></span>
+            <span class="bar" id="3"></span>
+        </div>
+    </div>
+</div>
+<div id="hiddenMenuBar">
+    <ul class="text-xl">
+        <li id="projects">Projects</li>
+        <li id="about">About</li>
+        <li id="contact">Contact</li>
+    </ul>
+</div>
+
+<style>
+    #newpost {
+        display: none;
+    }
+    #mainDiv {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #logoLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p {
+        color: #f23513;
+    }
+    li {
+        padding: 16px 32px;
+        position: relative;
+        color: #0f0f0f;
+        transition: 0.3s;
+    }
+    li::after {
+        position: absolute;
+        border-radius: 5px;
+        content: "";
+        bottom: -3px;
+        height: 2px;
+        width: 100%;
+        left: 0;
+        background-color: #f23513;
+        transition: 0.3s;
+        transform: scaleX(0);
+    }
+    li:hover {
+        color: #f23513;
+        cursor: pointer;
+    }
+    li:hover::after {
+        transform: scaleX(1);
+    }
+    #menu {
+        margin-top: -32px;
+        padding-right: 16px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: relative;
+        z-index: 1;
+    }
+    #menu .bar {
+        width: 32px;
+        height: 3px;
+        border-radius: 1000px;
+        background-color: black;
+        transition: 0.3s;
+    }
+
+    #hiddenMenuBar {
+        position: absolute;
+        background-color: #e0e0e0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: -10000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #projects,
+    #about,
+    #contact {
+        position: relative;
+        left: -601px;
+    }
+
+    @media (width <= 599px) {
+        #mainDiv {
+            justify-content: space-between;
+        }
+        #logoDiv a {
+            flex-direction: column;
+        }
+
+        #menuList {
+            display: none;
+        }
+        #icon{
+            width: 60%;
+            transition: 0.3s;
+        }
+        #logoDiv{
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+    @media (width >= 600px) {
+        #menu {
+            display: none;
+        }
+        #hiddenMenuBar {
+            display: none;
+        }
+    }
+</style>

@@ -1,0 +1,176 @@
+---
+import pot from '../../public/images/pot1.png';
+import FB from '../../public/images/fb.png';
+import GB from '../../public/images/github.png';
+import IG from '../../public/images/instagram.png';
+import LD from '../../public/images/ld.png';
+import sixHundredMedia from '../components/600media.astro';
+---
+<div id="mainDiv">
+    <div id="bodyImage">
+        <img src={pot} alt="Images">
+    </div>
+    <div id="bodyContent" class="text-2xl ">
+        <div>
+            <h1>Hello There, 
+                <br/>I'm <span>Phurpa Sherpa.</span>
+            </h1>
+            <h2>I Am Into <span>Web-Developer.</span></h2>
+            <button>Connect Me</button>
+            <div id="socialIcons">
+                <a href="/"><img src={FB} title="Facebook" alt="Facebook Icon"></a>
+                <a href="/"><img src={IG} title="Instagram" alt="Instagram Icon"></a>
+                <a href="/"><img src={GB} title="GitHub" alt="Github Icon"></a>
+                <a href="/"><img src={LD} title="LinkedIn" alt="Linkedin Icon"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #mainDiv{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 44px;
+    }
+    
+    #bodyContent{
+        display: flex;
+        justify-content: left;
+        align-items: end;
+        padding-bottom: 80px;
+        margin-right: 64px;
+    }
+    #bodyContent h1{
+        font-size: 40px;
+        font-weight: bold;
+        line-height: 56px;
+        letter-spacing: 2px;         
+    }
+    #bodyContent h1 span{
+        color:#f23513;
+        letter-spacing: 3px;
+    }
+
+    #bodyContent h2{
+        font-size: 16px;
+        line-height: 48px; 
+        letter-spacing: 1px;       
+    }
+    #bodyContent h2 span{
+        font-size: 16px;
+        line-height: 48px; 
+        letter-spacing: 3px;
+        font-weight: bold;       
+    }
+
+    #bodyContent button{
+        margin: 10px 0px;
+        border: 2px solid #f23513;
+        color: #f23513;
+        text-align: center;
+        border-radius: 100px;
+        padding: 12px 32px;
+        font-size: 20px;
+        letter-spacing: 3px;
+        
+    }
+
+    #bodyContent button:hover{
+        background-color: #f23513;
+        color: white;
+        transition: 0.5s;
+    }
+
+    #socialIcons{
+        display: flex;
+
+    }
+    #socialIcons img{
+        padding: 10px 10px 0px 20px;
+        cursor: pointer;
+    }
+
+    /* Media Queries of different resolution */
+    @media (width <= 768px){
+        #bodyImage img{
+            width: 80%;
+        }
+    }
+    @media (width <= 1025px){
+        #bodyContent{
+        padding-bottom: 60px;
+    }
+        #bodyContent h1{
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 40px;
+            letter-spacing: 1px;
+        }
+        #bodyContent h1 span{
+            color:#f23513;
+            letter-spacing: 2px;
+        }
+        #bodyContent button{
+            margin: 10px 0px;
+            border: 2px solid #f23513;
+            color: #f23513;
+            text-align: center;
+            border-radius: 100px;
+            padding: 12px 32px;
+            font-size: 22px;
+            letter-spacing: 3px;
+        }
+        #bodyImage img{
+            width: 75%;
+        }
+    }
+
+    @media (width <=620px){
+        #bodyContent{
+            padding-bottom: 0px;
+        }
+        #bodyContent button{
+            width: 100%;
+        }
+        #socialIcons{
+            display: flex;
+            justify-content: space-between;
+        }
+        #socialIcons img{
+            cursor: pointer;
+        }
+    }
+    
+    @media (width <= 599px){
+        #mainDiv{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        #bodyImage{
+            width: 75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #bodyContent{
+            margin: 10px 0px 0px 0px;
+        }
+    }
+
+
+
+
+
+    @media (width <=320px){
+        #bodyContent{
+            padding: 0px 0px 0px 16px;
+        }
+    }
+
+    
+
+</style>
